@@ -95,6 +95,16 @@ function displayWordBank() {
     wordList.innerHTML = '';
     wordBank.forEach((word, index) => {
         const wordItem = document.createElement('div');
+    if (!word) {
+        alert('Please enter a word.');
+        return;
+    }
+
+    if (wordBank.includes(word)) {
+        alert('This word already exists in the word bank!');
+        return;
+    }
+
         wordItem.className = 'word-item';
         wordItem.innerHTML = `
             <span class="word">${word}</span>
