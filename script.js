@@ -121,6 +121,12 @@ function addWord() {
     const input = document.getElementById('newWord');
     const word = input.value.trim().toUpperCase();
 
+    // Check if word contains only letters
+    if (!/^[A-Z]+$/.test(word)) {
+        alert('Please enter only letters (A-Z). Numbers and special characters are not allowed.');
+        return;
+    }
+
     // Check for duplicate words
     if (wordBank.includes(word)) {
         alert('This word already exists in the word bank!');
@@ -137,6 +143,12 @@ function editWord(index) {
     const newWord = prompt('Edit word:', wordBank[index]);
     if (newWord) {
         const formattedWord = newWord.trim().toUpperCase();
+        
+        // Check if word contains only letters
+        if (!/^[A-Z]+$/.test(formattedWord)) {
+            alert('Please enter only letters (A-Z). Numbers and special characters are not allowed.');
+            return;
+        }
         
         // Check for duplicate words (excluding the current word being edited)
         const otherWords = wordBank.filter((_, i) => i !== index);
