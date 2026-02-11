@@ -111,6 +111,12 @@ function addWord() {
     const input = document.getElementById('newWord');
     const word = input.value.trim().toUpperCase();
 
+    // Check if word contains only letters
+    if (!/^[A-Z]+$/.test(word)) {
+        alert('Please enter only letters (A-Z). Numbers and special characters are not allowed.');
+        return;
+    }
+
     // Check for duplicate words
     if (wordBank.includes(word)) {
         alert('This word already exists in the word bank!');
