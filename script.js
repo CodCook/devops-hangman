@@ -22,7 +22,18 @@ let wordBank = [];
 document.addEventListener('DOMContentLoaded', function() {
     loadWordBank();
     generateKeyboard();
+    loadSavedTheme();
 });
+
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeIcon = document.querySelector('.theme-icon');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.textContent = '☀️';
+    }
+}
 
 function toggleTheme() {
     const body = document.body;
@@ -32,8 +43,10 @@ function toggleTheme() {
     
     if (body.classList.contains('dark-mode')) {
         themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
     } else {
         themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
     }
 }
 
