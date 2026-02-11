@@ -278,13 +278,12 @@ function updateLives() {
 }
 
 function updateHangman() {
-    const parts = ['head', 'body', 'leftArm', 'rightArm', 'leftLeg', 'rightLeg'];
-    
-    const wrongOrder = ['head', 'leftArm', 'rightArm', 'body', 'leftLeg', 'rightLeg'];
+    // Correct sequence: head → body → left arm → right arm → left leg → right leg
+    const correctOrder = ['head', 'body', 'leftArm', 'rightArm', 'leftLeg', 'rightLeg'];
     const partIndex = gameState.wrongGuesses - 1;
     
-    if (partIndex >= 0 && partIndex < wrongOrder.length) {
-        const partToShow = wrongOrder[partIndex];
+    if (partIndex >= 0 && partIndex < correctOrder.length) {
+        const partToShow = correctOrder[partIndex];
         document.getElementById(partToShow).style.display = 'block';
     }
 }
