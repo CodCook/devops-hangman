@@ -46,7 +46,7 @@ function switchTab(tabName) {
 }
 
 function loadWordBank() {
-    const stored = localStorage.getItem('wordBank');
+    const stored = localStorage.getItem('devopsWordBank');
     if (stored) {
         wordBank = JSON.parse(stored);
     } else {
@@ -57,7 +57,7 @@ function loadWordBank() {
 }
 
 function saveWordBank() {
-    localStorage.setItem('devopsWords', JSON.stringify(wordBank));
+    localStorage.setItem('devopsWordBank', JSON.stringify(wordBank));
 }
 
 function displayWordBank() {
