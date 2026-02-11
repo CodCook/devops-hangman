@@ -126,7 +126,16 @@ function addWord() {
 function editWord(index) {
     const newWord = prompt('Edit word:', wordBank[index]);
     if (newWord) {
-        wordBank.splice(index, 1);
+        const formattedWord = newWord.trim().toUpperCase();
+        
+        // Check for duplicate words (excluding the current word being edited)
+        const otherWords = wordBank.filter((_, i) => i !== index);
+        if (otherWords.includes(formattedWord)) {
+            alert('This word already exists in the word bank!');
+            return;
+        }
+        
+        wordBank[index] = formattedWord;
         saveWordBank();
         displayWordBank();
     }
