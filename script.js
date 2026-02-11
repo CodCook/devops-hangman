@@ -134,6 +134,12 @@ function editWord(index) {
     if (newWord) {
         const formattedWord = newWord.trim().toUpperCase();
         
+        // Check if word contains only letters
+        if (!/^[A-Z]+$/.test(formattedWord)) {
+            alert('Please enter only letters (A-Z). Numbers and special characters are not allowed.');
+            return;
+        }
+        
         // Check for duplicate words (excluding the current word being edited)
         const otherWords = wordBank.filter((_, i) => i !== index);
         if (otherWords.includes(formattedWord)) {
