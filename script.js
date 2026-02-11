@@ -111,6 +111,12 @@ function addWord() {
     const input = document.getElementById('newWord');
     const word = input.value.trim().toUpperCase();
 
+    // Check for duplicate words
+    if (wordBank.includes(word)) {
+        alert('This word already exists in the word bank!');
+        return;
+    }
+
     wordBank.push(word);
     input.value = '';
     saveWordBank();
